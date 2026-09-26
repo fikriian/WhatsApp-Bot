@@ -9,12 +9,15 @@ export interface BotCommand {
 }
 
 export const commands: Map<string, BotCommand> = new Map();
+export const aliases: Map<string, string> = new Map();
 
 declare global {
     var commands: Map<string, BotCommand>;
+    var aliases: Map<string, string>;
 }
 
 globalThis.commands = commands;
+globalThis.aliases = aliases;
 
 export const loadCommands = async (client: WaClient) => {
     let count = 0;
@@ -40,11 +43,11 @@ export const loadCommands = async (client: WaClient) => {
 
             if(ev.alias && Array.isArray(ev.alias)) {
                 ev.alias.forEach((alias: string) => {
-                    if(commands.has(alias)) {
-                        log(`Alias '${alias}' sudah digunakan oleh command lain!`, 'warn');
+                    if(commands.has(alias) || aliases.has(alias)) {
+                        log(`Alias '${alias}' sudah digunakan oleh command atau alias lain!`, 'warn');
                         return;
                     }
-                    commands.set(alias, ev);
+                    aliases.set(alias, ev.command);
                 });
             }
         }
