@@ -5,8 +5,8 @@ export default {
     alias: ['m'],
     description: 'Menampilkan menu commands bot',
     run: async (client: WaClient, event: WaIncomingMessageEvent, args: string[]) => {
-        let text: string = '🎉 Selamat datang di Bot Hyerii! 🎉\n\n';
-        text += "Bot ini dirancang untuk edukasi semata, dibuat oleh *@hyeriirim* menggunakan *_zapo-js_* dan diketik dalam bahasa _TypeScript_.";
+        let text: string = '🎉 Selamat datang di Bot Fikri! 🎉\n\n';
+        text += "Bot ini dirancang untuk edukasi semata, dibuat oleh *@fikriian* menggunakan *_zapo-js_* dan diketik dalam bahasa _TypeScript_.";
         text += "Namun, kamu juga dapat menggunakan bot ini untuk mendapatkan masukan dan akan dikirim ke pembuat bot!\n\n";
         text += "Berikut adalah beberapa perintah yang tersedia:\n\n";
         let count = 1;
