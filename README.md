@@ -1,6 +1,6 @@
 # Bot WhatsApp
 
-Sebuah Bot WhatsApp yang jalan di bawah Runtime Bun dengan library **[zapo-js](https://zapo.to)**. Project ini cocok untuk kamu yang masih memiliki pengetahuan dasar dan ingin membuat Bot WhatsApp. Diprogram dengan bahasa *TypeScript*. Kamu sendiri bisa menambahkan beberapa event dan command sesuai preferensi kamu. Cukup lihat dan buka isi file di dalam folder **[events](./events/)** dan **[commands](./commands/)** untuk referensi kamu.
+Sebuah Bot WhatsApp yang jalan di bawah Runtime Bun dengan library **[zapo-js](https://zapo.to)**. Proyek ini cocok untuk kamu yang masih memiliki pengetahuan dasar dan ingin membuat Bot WhatsApp. Diprogram dengan bahasa *TypeScript*. Kamu sendiri bisa menambahkan beberapa event dan command sesuai preferensi kamu. Cukup lihat dan buka isi file di dalam folder **[events](./src/events/)** dan **[commands](./src/commands/)** untuk referensi kamu.
 
 ## Struktur Folder
 
