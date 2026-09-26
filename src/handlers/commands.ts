@@ -5,6 +5,7 @@ export interface BotCommand {
     command: string;
     alias?: string[];
     description?: string;
+    owner?: boolean;
     run: (client: WaClient, ...args: any[]) => any;
 }
 
