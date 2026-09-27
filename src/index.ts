@@ -4,6 +4,7 @@ import 'utils/log';
 import 'utils/utils';
 import { load as loadConfig } from './utils/config';
 import { loadEvents } from 'handlers/events';
+import { createMediaProcessor } from '@zapo-js/media-utils';
 
 const store = createStore({
     backends: {
@@ -18,22 +19,24 @@ const store = createStore({
         })
     },
     providers: {
-    auth: 'mysql',
-    signal: 'mysql',
-    preKey: 'mysql',
-    session: 'mysql',
-    identity: 'mysql',
-    senderKey: 'mysql',
-    appState: 'mysql',
-    privacyToken: 'mysql',
-    messages: 'mysql',
-    threads: 'mysql',
-    contacts: 'mysql'
+        auth: 'mysql',
+        signal: 'mysql',
+        preKey: 'mysql',
+        session: 'mysql',
+        identity: 'mysql',
+        senderKey: 'mysql',
+        appState: 'mysql',
+        privacyToken: 'mysql',
+        messages: 'mysql',
+        threads: 'mysql',
+        contacts: 'mysql'
     }
 });
 
 async function runBot() {
     await loadConfig();
+
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     console.clear();
 
     const client = new WaClient(
@@ -42,7 +45,10 @@ async function runBot() {
             sessionId: 'default',
             connectTimeoutMs: 15_000,
             nodeQueryTimeoutMs: 30_000,
-            history: { enabled: true, requireFullSync: true }
+            history: { enabled: true, requireFullSync: true },
+            media: {
+                processor: createMediaProcessor()
+            }
         },
         await createNoopLogger()
     );
