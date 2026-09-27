@@ -57,6 +57,20 @@ export const load = async (): Promise<BotConfig> => {
     }
     log(`Auth Type berhasil dimuat: ${authType}`, 'success');
 
+    const stikerAuthor = process.env.STICKER_AUTHOR;
+    if (!stikerAuthor) {
+        log('STICKER_AUTHOR tidak ditemukan di .env!', 'error');
+        process.exit(1);
+    }
+    log(`Sticker Author berhasil dimuat: ${stikerAuthor}`, 'success');
+
+    const stikerPackName = process.env.STICKER_PACK_NAME;
+    if (!stikerPackName) {
+        log('STICKER_PACK_NAME tidak ditemukan di .env!', 'error');
+        process.exit(1);
+    }
+    log(`Sticker Pack berhasil dimuat: ${stikerPackName}`, 'success');
+
     const botConfig: BotConfig = {
         BotNumber: botNumber,
         Prefix: prefixes,
