@@ -7,9 +7,9 @@ export default {
         if (text) {
             if(isGroupJid(event.key.remoteJid)) {
                 const groupName = (await client.group.queryGroupMetadata(event.key.remoteJid)).subject;
-                log(`${event.pushName} [${splitJid(event.key.participantAlt!).user} -> ${groupName}] : ${text}`, 'info');
+                log(`${event.pushName || 'Unknown'} [${splitJid(event.key.participantAlt ?? event.key.participant!).user} -> ${groupName}] : ${text}`, 'info');
             } else {
-                log(`${event.pushName} [${splitJid(event.key.remoteJidAlt!).user || 'Unknown'}] : ${text}`, 'info');
+                log(`${event.pushName || 'Unknown'} [${splitJid(event.key.remoteJidAlt ?? event.key.remoteJid).user || 'Unknown'}] : ${text}`, 'info');
             }
             await client.chat.setChatRead(event.key.remoteJid, true);
             await client.message.sendReceipt(event, { type: 'read' });
